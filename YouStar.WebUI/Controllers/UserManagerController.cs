@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YouStar.Core.Contracts;
 using YouStar.Core.Models;
 using YouStar.DataAccess.InMemory;
 
@@ -10,11 +11,11 @@ namespace YouStar.WebUI.Controllers
 {
     public class UserManagerController : Controller
     {
-        InMemoryRepository<User> context;
+        IRepository<User> context;
 
-        public UserManagerController()
+        public UserManagerController(IRepository<User> userContext)
         {
-            context = new InMemoryRepository<User>();
+            context = userContext;
         }
         // GET: PostManager
         public ActionResult Index()
