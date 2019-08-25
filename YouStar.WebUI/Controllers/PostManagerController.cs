@@ -4,17 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using YouStar.Core.Models;
+using YouStar.Core.ViewModels;
 using YouStar.DataAccess.InMemory;
 
 namespace YouStar.WebUI.Controllers
 {
     public class PostManagerController : Controller
     {
-        PostRepository context;
+        InMemoryRepository<Post> context;
+        InMemoryRepository<User> users;
 
         public PostManagerController()
         {
-            context = new PostRepository();
+            context = new InMemoryRepository<Post>();
+            users = new InMemoryRepository<User>();
         }
         // GET: PostManager
         public ActionResult Index()
@@ -25,8 +28,11 @@ namespace YouStar.WebUI.Controllers
 
         public ActionResult Create()
         {
-            Post post = new Post();
-            return View(post);
+            PostManagerViewModel viewModel = new PostManagerViewModel();
+
+            viewModel.Post = new Post();
+            viewModel.Users = users.Collection();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -50,7 +56,11 @@ namespace YouStar.WebUI.Controllers
             }
             else
             {
-                return View(post);
+                PostManagerViewModel viewModel = new PostManagerViewModel();
+                viewModel.Post = post;
+                viewModel.Users = users.Collection();
+
+                return View(viewModel);
             }
         }
 

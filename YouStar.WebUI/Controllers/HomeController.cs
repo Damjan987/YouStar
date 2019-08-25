@@ -26,5 +26,25 @@ namespace YouStar.WebUI.Controllers
 
             return View();
         }
+
+        public ActionResult FirstPage()
+        {
+            return View();
+        }
+
+        public ActionResult FancySignUp()
+        {
+            return View();
+        }
+
+        public ActionResult FancyLogin()
+        {
+            return View();
+        }
+
+        public ActionResult LoginUser()
+        {
+            return View();
+        }
     }
 }

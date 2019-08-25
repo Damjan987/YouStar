@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "FirstPage";
+}
+
+<style>
+    body {
+        background-color: yellow;
+    }
+
+    .centriraj {
+        text-align: center;
+        font-size: 70px;
+        margin-top: 70px;
+    }
+
+    .widthh {
+        width: 70%;
+    }
+
+    .paddingiraj {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
+        padding-right: 50px;
+        border: 2px solid black;
+        border-radius: 25px;
+        background-color: black;
+        font-size: 25px;
+    }
+
+    .paddingiraj2 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 63px;
+        padding-right: 63px;
+        border: 2px solid black;
+        border-radius: 25px;
+        background-color: black;
+        font-size: 25px;
+    }
+
+    .marginiraj {
+        margin-bottom: 60px;
+    }
+</style>
+
+<div class="centriraj marginiraj">
+    <p>YouStar</p>
+</div>
+
+<div class="marginiraj centriraj">
+    <button class="paddingiraj widthh">@Html.ActionLink("Sign up", "Create", "UserManager")</button>
+</div>
+
+<div class="centriraj">
+    <button class="paddingiraj2 widthh">@Html.ActionLink("Login", "LoginUser", "Home", new { @style = "color:#FFF;" })</button>
+</div>
