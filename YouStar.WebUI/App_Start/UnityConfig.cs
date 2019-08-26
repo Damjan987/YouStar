@@ -4,6 +4,7 @@ using Unity;
 using YouStar.Core.Contracts;
 using YouStar.Core.Models;
 using YouStar.DataAccess.InMemory;
+using YouStar.DataAccess.SQL;
 
 namespace YouStar.WebUI
 {
@@ -45,8 +46,8 @@ namespace YouStar.WebUI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IRepository<User>, InMemoryRepository<User>>();
-            container.RegisterType<IRepository<Post>, InMemoryRepository<Post>>();
+            container.RegisterType<IRepository<User>, SQLRepository<User>>();
+            container.RegisterType<IRepository<Post>, SQLRepository<Post>>();
         }
     }
 }
